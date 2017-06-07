@@ -180,6 +180,8 @@ _download_and_unpack_ivy_cache() {
     ivyCacheUrl="$baseUrl-base.tar.gz"
   fi
 
+  echo "------> DEBUG URL1: $ivyCacheUrl"
+
   curl --retry 3 --silent --max-time 60 --location $ivyCacheUrl | tar xzm -C $sbtUserHome
   if [ $? -eq 0 ]; then
     mv $sbtUserHome/.sbt/* $sbtUserHome
